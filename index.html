@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Hours:Min:Sec</h3>
+    <div id="image">
+    <button onclick="getImage()">Get Image</button>
+    </div>
+    <script>
+        function getTime() {
+            let day = new Date();
+            //getting the current time in hour minutes and seconds
+            let hour = day.getHours();
+        let minutes = day.getMinutes();
+        let seconds = day.getSeconds();
+        let hour_conv = hour -12;
+        //putting it on the page
+        let tag = document.getElementsByTagName('h3')[0];
+        let clockcode = `<h3>
+                        ${hour_conv}:${minutes}:${seconds}
+                         </h3>   `
+          tag.innerHTML = clockcode
+        }
+        getTime();
+            setInterval(getTime,1000);
+
+            function getImage(){
+                let image = document.createElement('img')
+                let div = document.getElementById('image');
+                image.src = 'goku.jpg';
+                div.appendChild(image);
+            }
+        </script>
+</body>
+</html>
